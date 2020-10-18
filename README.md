@@ -20,40 +20,39 @@ Or
 
 ``` shellsession
 $ tldr --help
-tldr - Simplified and community-driven man pages
-
-Usage: tldr [-v|--version] ((-u|--update) | [-p|--platform PLATFORM]
-            [-L|--language LOCALE] COMMAND | (-a|--about))
-  tldr Client program
-
-Available options:
-  -h,--help                Show this help text
-  -v,--version             Show version
-  -u,--update              Update offline cache of tldr pages
-  -p,--platform PLATFORM   Prioritize specfic platform while searching. Valid
-                           values include linux, osx, windows, sunos
-  -L,--language LOCALE     Preferred language for the page returned
-  COMMAND                  name of the command
-  --auto-update-interval DAYS
-                           Perform an automatic update if the cache is older
-                           than DAYS
+Usage:
+        tldr [options] COMMAND
+        tldr [options]
+Options:
+-h --help                  Show help
+-u --update                Update local cache
+-L --language <lang>       Use <lang> instead of english
+-p --platform <platform>   Use <platform> instead of the native platform
+-a --auto-update-interval <days>
+            Perform an automatic update if the cache is older than <days>
 ```
 
 Or a much better example of the usage:
 
 ``` shellsession
 $ tldr tldr
-tldr
-Simplified man pages. More information: https://tldr.sh.
+== tldr ==
 
- - Get typical usages of a command (hint: this is how you got here!):
-   tldr {{command}}
+Displays simple help pages for command-line tools, from the tldr-pages project.
 
- - Show the tar tldr page for linux:
-   tldr -p {{linux}} {{tar}}
+More information: <https://tldr.sh>.
 
- - Get help for a git subcommand:
-   tldr {{git checkout}}
+Get typical usages of a command (hint: this is how you got here!):
+        tldr {{command}}
+
+Show the tar tldr page for Linux:
+        tldr -p {{linux}} {{tar}}
+
+Get help for a git subcommand:
+        tldr {{git-checkout}}
+
+Update local pages (if the client supports caching):
+        tldr -u
 ```
 
 On the first run, this programme caches all available tldr pages. 
