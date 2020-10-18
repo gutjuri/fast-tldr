@@ -20,7 +20,7 @@ Or
 
 1. [Install stack](https://docs.haskellstack.org/en/stable/README/#how-to-install)
 2. `git clone https://github.com/gutjuri/fast-tldr.git && cd fast-tldr`
-2. `stack install`
+2. `stack install` or `stack install --local-bin-path .` 
 
 ## Usage
 
