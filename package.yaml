@@ -1,0 +1,52 @@
+name: tldr
+version: '1.0'
+synopsis: fast tldr client
+description: Visit https://tldr.sh for details.
+category: Web, CLI
+author: Juri Dispan, Sibi Prabakaran
+maintainer: juri.dispan@posteo.net
+copyright: 2020 Juri Dispan, Sibi Prabakaran
+license: GPL-2
+github: gutjuri/fast-tldr
+
+extra-source-files:
+- README.md
+- CHANGELOG.md
+
+library:
+  source-dirs: src
+  dependencies:
+  - base >=4.7 && <5
+  - text
+  - bytestring
+  - ansi-terminal
+  - directory
+  - filepath
+  - semigroups
+  - containers
+  - http-conduit
+  - zip-archive
+  - time
+
+ghc-options:
+  - -Wall
+  - -O2
+
+executables:
+  tldr:
+    main: Main.hs
+    source-dirs: app
+    dependencies:
+    - tldr
+    - base
+
+tests:
+  tldr-test:
+    main: Spec.hs
+    source-dirs: test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - tldr

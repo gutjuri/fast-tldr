@@ -1,0 +1,77 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.33.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 79824f2ee023cd58d58c41cf89efdcb4696b4459a229d5383658baaac9d46f26
+
+name:           tldr
+version:        1.0
+synopsis:       fast tldr client
+description:    Visit https://tldr.sh for details.
+category:       Web, CLI
+homepage:       https://github.com/gutjuri/fast-tldr#readme
+bug-reports:    https://github.com/gutjuri/fast-tldr/issues
+author:         Juri Dispan, Sibi Prabakaran
+maintainer:     juri.dispan@posteo.net
+copyright:      2020 Juri Dispan, Sibi Prabakaran
+license:        GPL-2
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    CHANGELOG.md
+
+source-repository head
+  type: git
+  location: https://github.com/gutjuri/fast-tldr
+
+library
+  exposed-modules:
+      Tldr
+      Tldr.App
+      Tldr.App.Handler
+      Tldr.Types
+  other-modules:
+      Paths_tldr
+  hs-source-dirs:
+      src
+  ghc-options: -Wall -O2
+  build-depends:
+      ansi-terminal
+    , base >=4.7 && <5
+    , bytestring
+    , containers
+    , directory
+    , filepath
+    , http-conduit
+    , semigroups
+    , text
+    , time
+    , zip-archive
+  default-language: Haskell2010
+
+executable tldr
+  main-is: Main.hs
+  other-modules:
+      Paths_tldr
+  hs-source-dirs:
+      app
+  ghc-options: -Wall -O2
+  build-depends:
+      base
+    , tldr
+  default-language: Haskell2010
+
+test-suite tldr-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_tldr
+  hs-source-dirs:
+      test
+  ghc-options: -Wall -O2 -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      tldr
+  default-language: Haskell2010
