@@ -18,9 +18,10 @@ module Tldr.Types where
 data Command
   = UpdateIndex
   | ShowHelp Int
+  | ShowVersion
   | ViewPage ViewOptions
              [String]
-  deriving (Show, Eq, Ord)
+  deriving (Eq)
 
 data ViewOptions =
   ViewOptions
@@ -28,4 +29,4 @@ data ViewOptions =
     , languageOption :: Maybe String
     , autoUpdateInterval :: Maybe Int
     }
-  deriving (Show, Eq, Ord)
+  deriving (Eq)

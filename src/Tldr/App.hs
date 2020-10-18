@@ -40,6 +40,7 @@ addCommand _ x                = x
 parseOpts :: [String] -> Command
 parseOpts (x : _) | x `elem` ["-u", "--update"] = UpdateIndex
 parseOpts (x : _) | x `elem` ["-h", "--help"]   = ShowHelp 0
+parseOpts (x : _) | x `elem` ["-v", "--version"]   = ShowVersion
 parseOpts (x : y : xs) | x `elem` ["-L", "--language"] =
   setIfView (ViewOptions Nothing (Just y) Nothing) $ parseOpts xs
 parseOpts (x : y : xs) | x `elem` ["-p", "--platform"] =

@@ -25,6 +25,7 @@ Usage:
         tldr [options]
 Options:
 -h --help                  Show help
+-v,--version               Show version
 -u --update                Update local cache
 -L --language <lang>       Use <lang> instead of english
 -p --platform <platform>   Use <platform> instead of the native platform

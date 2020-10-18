@@ -28,6 +28,7 @@ import           Data.List                      ( intercalate
 import           Data.Semigroup                 ( (<>) )
 import           Data.Time
 import           Data.Maybe                     ( isJust )
+import           Data.Version                   ( showVersion )
 import           System.Directory
 import           System.Exit                    ( exitFailure
                                                 , exitSuccess
@@ -44,6 +45,7 @@ import           Control.Monad
 
 import           Tldr
 import           Tldr.Types
+import           Paths_tldr                     ( version )
 
 tldrDirName :: String
 tldrDirName = "tldr"
@@ -63,14 +65,23 @@ showHelp exitCode = do
       , "\ttldr [options]"
       , "Options:"
       , "-h --help                  Show help"
+      , "-v,--version               Show version"
       , "-u --update                Update local cache"
       , "-L --language <lang>       Use <lang> instead of english"
       , "-p --platform <platform>   Use <platform> instead of the native platform"
       , "-a --auto-update-interval <days>"
-      , "            Perform an automatic update if the cache is older than <days>" 
+      , "            Perform an automatic update if the cache is older than <days>"
       ]
   putStr helpMsg
   if exitCode == 0 then exitSuccess else exitFailure
+
+showVersionInfo :: IO ()
+showVersionInfo = do
+  let versionMsg = unlines
+        [ "fast-tldr " <> showVersion version
+        , "Copyright (C) 2020 Juri Dispan, Sibi Prabakaran"
+        ]
+  putStr versionMsg
 
 getLocaleSuffix :: Maybe String -> Maybe String
 getLocaleSuffix lang = case map toLower <$> lang of
@@ -81,6 +92,7 @@ handleTldrOpts :: Command -> IO ()
 handleTldrOpts command = case command of
   UpdateIndex             -> updateTldrPages
   ShowHelp exitCode       -> showHelp exitCode
+  ShowVersion             -> showVersionInfo
   ViewPage _        []    -> handleTldrOpts $ ShowHelp 1
   ViewPage voptions pages -> do
     shouldPerformUpdate <- updateNecessary command
