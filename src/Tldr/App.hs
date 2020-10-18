@@ -57,5 +57,5 @@ parseOpts [] = ViewPage (ViewOptions Nothing Nothing Nothing) []
 appMain :: IO ()
 appMain = do
   args <- getArgs
-  let opts = if null args then ShowHelp 1 else parseOpts args
+  let opts = parseOpts args
   handleTldrOpts opts

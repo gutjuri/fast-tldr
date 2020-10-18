@@ -1,4 +1,4 @@
-# tldr
+# fast-tldr
 
 A fast client for tldr.
 
@@ -13,7 +13,8 @@ See Github releases: https://github.com/gutjuri/fast-tldr/releases
 Or
 
 1. [Install stack](https://docs.haskellstack.org/en/stable/README/#how-to-install)
-2. `stack install tldr`
+2. `git clone https://github.com/gutjuri/fast-tldr.git && cd fast-tldr`
+2. `stack install`
 
 ## Usage
 

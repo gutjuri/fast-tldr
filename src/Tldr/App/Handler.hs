@@ -66,6 +66,8 @@ showHelp exitCode = do
       , "-u --update                Update local cache"
       , "-L --language <lang>       Use <lang> instead of english"
       , "-p --platform <platform>   Use <platform> instead of the native platform"
+      , "-a --auto-update-interval <days>"
+      , "            Perform an automatic update if the cache is older than <days>" 
       ]
   putStr helpMsg
   if exitCode == 0 then exitSuccess else exitFailure
@@ -79,6 +81,7 @@ handleTldrOpts :: Command -> IO ()
 handleTldrOpts command = case command of
   UpdateIndex             -> updateTldrPages
   ShowHelp exitCode       -> showHelp exitCode
+  ViewPage _        []    -> handleTldrOpts $ ShowHelp 1
   ViewPage voptions pages -> do
     shouldPerformUpdate <- updateNecessary command
     when shouldPerformUpdate updateTldrPages
