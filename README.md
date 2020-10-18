@@ -109,3 +109,5 @@ Compared clients:
 - [C client](https://github.com/tldr-pages/tldr-cpp-client)
 - [Bash client](https://github.com/pepa65/tldr-bash-client)
 - [Go client by k3mist](https://github.com/k3mist/tldr/)
+
+As we can see, fast-tldr is the fastest client (although not by a large margin).
