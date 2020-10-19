@@ -14,6 +14,13 @@ if [ ! -f tealdeer ]; then
   ./tealdeer --update
 fi
 
+if [ ! -f tldr-hs ]; then
+  wget https://github.com/psibi/tldr-hs/releases/download/v0.8.0/tldr-linux-v0.8.0.tar.gz
+  tar xvzf tldr-linux-v0.8.0.tar.gz
+  mv tldr tldr-hs
+  ./tldr-hs --update
+fi
+
 if [ ! -f tldr-c-client ]; then
   wget https://github.com/tldr-pages/tldr-c-client/archive/v1.3.0.zip
   unzip v1.3.0.zip
@@ -42,6 +49,7 @@ fi
 hyperfine --prepare 'sync; echo 3 | sudo tee /proc/sys/vm/drop_caches' \
           "tldr $TESTPAGE" \
           "./tealdeer $TESTPAGE" \
+          "./tldr-hs $TESTPAGE" \
           "./tldr-c-client $TESTPAGE" \
           "./tldr-bash-client $TESTPAGE" \
           "./tldr-go-client $TESTPAGE"
