@@ -1,10 +1,10 @@
 cabal-version: 1.12
 
--- This file has been generated from package.yaml by hpack version 0.33.0.
+-- This file has been generated from package.yaml by hpack version 0.35.2.
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 79824f2ee023cd58d58c41cf89efdcb4696b4459a229d5383658baaac9d46f26
+-- hash: 3a84fa829ecee0425057ca5ab6c52a726c945812c2b3c59febbe6c552e7a4ac6
 
 name:           tldr
 version:        1.0
@@ -15,7 +15,7 @@ homepage:       https://github.com/gutjuri/fast-tldr#readme
 bug-reports:    https://github.com/gutjuri/fast-tldr/issues
 author:         Juri Dispan, Sibi Prabakaran
 maintainer:     juri.dispan@posteo.net
-copyright:      2020 Juri Dispan, Sibi Prabakaran
+copyright:      2020-2024 Juri Dispan, Sibi Prabakaran
 license:        GPL-2
 license-file:   LICENSE
 build-type:     Simple
